@@ -1,10 +1,8 @@
-import dotenv from "dotenv";
 import express from "express";
 import { NodemailerMailAdapter } from "./adapters/nodemailer/nodemailer-mail-adapter";
 import { PrismaFeebackRepository } from "./repositories/prisma/prisma-feedbacks-repository";
 import { SubmitFeedbackService } from "./services/submit-feedback-service";
 
-dotenv.config()
 
 export const routes = express.Router();
 
