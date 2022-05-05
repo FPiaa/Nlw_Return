@@ -13,9 +13,21 @@ export class SubmitFeedbackService {
         private feedbacksRepository: FeedbacksRepository,
         private mailAdapter: MailAdapter  
     ) {}
-
+    
+    //TODO: ADD SOME ERROR TYPE
     async execute(request: SubmitFeedbackServiceRequest) {
         const { type, comment, screenshot } = request;
+
+        if(!type) {
+            throw new Error("Type is Required");
+        }
+        if(!comment) {
+            throw new Error("Comment is Required");
+        }
+        if (screenshot && !screenshot.startsWith("data:image/png;base64")) {
+            throw new Error("Invalid Screenshot Format");
+        }
+
         await this.feedbacksRepository.create( {
             type, comment, screenshot
         });

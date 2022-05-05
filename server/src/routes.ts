@@ -18,5 +18,7 @@ routes.post('/feedbacks', async (req, res) => {
         type, comment, screenshot
     }).then(() => {
         return res.status(201).send();
-    });
+    }).catch((e) => {
+        console.log(e);
+    } );
 });
