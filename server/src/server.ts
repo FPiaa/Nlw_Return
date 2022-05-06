@@ -1,4 +1,3 @@
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import { routes } from "./routes";
@@ -7,9 +6,6 @@ dotenv.config()
 const FRONTEND_SERVER = process.env.FRONTEND_SERVER;
 
 const app = express();
-app.use(cors({
-    origin: FRONTEND_SERVER
-}))
 app.use(express.json());
 app.use(routes);
 
