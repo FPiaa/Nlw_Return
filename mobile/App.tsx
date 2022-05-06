@@ -8,7 +8,7 @@ import { theme } from './src/theme';
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from 'react';
-import { Widget } from './src/components/Widget';
+import Widget from './src/components/Widget';
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
