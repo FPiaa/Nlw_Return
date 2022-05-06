@@ -53,12 +53,12 @@ export default function App() {
             onLayout={onLayoutRootView}
         >
 
-            <Widget />
             <StatusBar 
                 style="light"
                 backgroundColor="transparent"
                 translucent
             />
+            <Widget />
         </View>
     );
 }
