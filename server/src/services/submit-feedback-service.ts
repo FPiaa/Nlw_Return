@@ -31,15 +31,15 @@ export class SubmitFeedbackService {
         await this.feedbacksRepository.create( {
             type, comment, screenshot
         });
+        let body = `<html><p>Tipo do Feeback ${type}</p><p>Comentário: ${comment}</p>`
+        if (screenshot) {
+            body.concat(`<img src=${screenshot} />`)
+        }
+        body.concat('</html>')
 
         await this.mailAdapter.sendMail({
             subject: "Novo Feedback", 
-            body: [
-                "<html>",
-                `<p>Tipo do Feedback ${type}</p>`,
-                `<p>Comentário: ${comment} </p>`,
-                "</html>"
-            ].join('\n')
+            body 
         });
     }   
 }
